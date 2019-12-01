@@ -2,7 +2,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, prometheus, env
+        include: health, info, prometheus, env, refresh2
 
 spring:
   cloud:
@@ -34,8 +34,10 @@ poll:
     - Captain America
     - Thor
     - Captain Marvel
+    #- X-Men
   images:
     - https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/24008/DEC100687_1._SX360_QL80_TTD_.jpg
     - https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/14688/14688._SX360_QL80_TTD_.jpg
     - https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/744376/744376._SX360_QL80_TTD_.jpg
     - https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/149220/149220._SX360_QL80_TTD_.jpg
+    #- https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/744531/744531._SX360_QL80_TTD_.jpg
