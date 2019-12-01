@@ -77,12 +77,6 @@ class VotesController {
         }
         return results;
     }
-
-    @PostMapping("api/v1/reset")
-    void reset() {
-        log.info("Resetting values");
-        redis.delete("*");
-    }
 }
 
 @Component
