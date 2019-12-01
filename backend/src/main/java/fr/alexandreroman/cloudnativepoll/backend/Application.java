@@ -38,6 +38,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -74,6 +76,12 @@ class VotesController {
             results.put(choice, counter == null ? 0 : counter);
         }
         return results;
+    }
+
+    @PostMapping("api/v1/reset")
+    void reset() {
+        log.info("Resetting values");
+        redis.delete(config.getChoices());
     }
 }
 
