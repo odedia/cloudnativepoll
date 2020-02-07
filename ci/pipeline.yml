@@ -68,7 +68,7 @@ jobs:
           type: docker-image
           source:
             repository: adoptopenjdk
-            tag: 8-jdk-hotspot
+            tag: 11-jdk-hotspot
         params:
           APP: ((app))
           MODULE: ((git-module))
