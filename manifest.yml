@@ -2,21 +2,31 @@
 applications:
   - name: cloudnativepoll-backend
     path: backend/target/cloudnativepoll-backend.jar
-    no-route: true
+    buildpacks:
+      - java_buildpack_offline
     health-check-type: http
     health-check-http-endpoint: /actuator/health
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     services:
       - service-registry
       - config-server
       - redis
       - rabbitmq
+      - metrics-endpoint-actuator-prometheus
 
   - name: cloudnativepoll-webui
     path: webui/target/cloudnativepoll-webui.jar
-    random-route: true
+    routes:
+    - route: cloudnativepoll-msevent.apps.pcfone.io 
+    buildpacks:
+      - java_buildpack_offline
     health-check-type: http
     health-check-http-endpoint: /actuator/health
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     services:
       - service-registry
       - config-server
       - rabbitmq
+      - metrics-endpoint-actuator-prometheus

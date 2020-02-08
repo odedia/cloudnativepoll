@@ -1,0 +1,9 @@
+---
+applications:
+  - name: cloudnativepoll-backend
+    path: backend/target/cloudnativepoll-backend.jar
+
+  - name: cloudnativepoll-webui
+    path: webui/target/cloudnativepoll-webui.jar
+    routes:
+    - route: cloudnativepoll-msevent.apps.pas.pvtl.eu 
