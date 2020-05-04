@@ -100,7 +100,7 @@ class VoteListener {
         } else {
             // The Redis server instance is updated as soon as we receive
             // new vote through the RabbitMQ queue.
-            redis.opsForValue().increment(vote.getChoice(), 1);
+            redis.opsForValue().increment(vote.getChoice());
         }
     }
 
