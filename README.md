@@ -59,21 +59,21 @@ The app is available at http://localhost:8080.
 Easily deploy this app to [Pivotal Platform](https://pivotal.io/platform)
 using these commands:
 ```bash
-$ cf create-service p-redis shared-vm redis
-$ cf create-service p-rabbitmq standard rabbitmq
-$ cf create-service p-service-registry standard service-registry
-$ cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": "true" }}' p-config-server standard config-server
-$ cf push
-$ cf add-network-policy cloudnativepoll-webui --destination-app cloudnativepoll-backend
+cf create-service p-redis shared-vm redis
+cf create-service p-rabbitmq standard rabbitmq
+cf create-service p-service-registry standard service-registry
+cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": true }}' p.config-server standard config-server
+cf push
+cf add-network-policy cloudnativepoll-webui --destination-app cloudnativepoll-backend
 ```
 
 In case you're using [Pivotal Web Services](https://run.pivotal.io), use these commands:
 ```bash
-$ cf create-service p.redis cache-small redis
-$ cf create-service cloudamqp lemur rabbitmq
-$ cf create-service p-service-registry trial service-registry
-$ cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": "true" }}' p-config-server trial config-server
-$ cf add-network-policy cloudnativepoll-webui --destination-app cloudnativepoll-backend
+cf create-service p.redis cache-small redis
+cf create-service cloudamqp lemur rabbitmq
+cf create-service p-service-registry trial service-registry
+cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": "true" }}' p-config-server trial config-server
+cf add-network-policy cloudnativepoll-webui --destination-app cloudnativepoll-backend
 ```
 
 Note this app is leveraging Container-To-Container (C2C) networking between
