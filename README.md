@@ -62,7 +62,8 @@ using these commands:
 cf create-service p-redis shared-vm redis
 cf create-service p-rabbitmq standard rabbitmq
 cf create-service p-service-registry standard service-registry
-cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": true }}' p.config-server standard config-server
+cf create-service -c '{"git": { "uri": "https://github.com/alexandreroman/cloudnativepoll-config", "cloneOnStart": "true" }}' p-config-server standard config-server
+
 cf push
 cf add-network-policy cloudnativepoll-webui --destination-app cloudnativepoll-backend
 ```
